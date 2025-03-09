@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; // Necesario para manejar escenas
 
 public class GameManager : MonoBehaviour
 {
@@ -16,13 +17,14 @@ public class GameManager : MonoBehaviour
     public int totalEnemies; // Total de enemigos en la escena
     private int enemiesDefeated = 0; // Enemigos derrotados
 
+    [Header("Scene Management")]
+    public string gameOverSceneName = "GameOverScene"; // Nombre de la escena de Game Over
 
-     private void Start()
+    private void Start()
     {
         // Contar los enemigos al inicio
         totalEnemies = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
-
 
     private void Awake()
     {
@@ -41,7 +43,6 @@ public class GameManager : MonoBehaviour
         currentLives = maxLives;
     }
 
-
     // Método para perder una vida
     public void LoseLife()
     {
@@ -56,8 +57,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-
     // Método para ganar el juego
     public void WinGame()
     {
@@ -65,8 +64,6 @@ public class GameManager : MonoBehaviour
 
         GameOver(true); // Gana el juego
     }
-
-
 
     // Método para manejar el fin del juego
     private void GameOver(bool isWin)
@@ -82,11 +79,22 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("¡Has perdido!");
-            // Aquí puedes cargar una escena de derrota o mostrar un mensaje
+            LoadGameOverScene(); // Cargar la escena de Game Over
         }
     }
 
-
+    // Método para cargar la escena de Game Over
+    private void LoadGameOverScene()
+    {
+        if (!string.IsNullOrEmpty(gameOverSceneName))
+        {
+            SceneManager.LoadScene(gameOverSceneName); // Cargar la escena de Game Over
+        }
+        else
+        {
+            Debug.LogError("Nombre de la escena de Game Over no asignado.");
+        }
+    }
 
     // Método para verificar si el jugador ganó
     public void CheckWinCondition()
@@ -98,23 +106,4 @@ public class GameManager : MonoBehaviour
             WinGame(); // Gana el juego
         }
     }
-
-/*
-    private void GameOverMethod(bool isWin)
-    {
-        gameOver = true;
-        gameWon = isWin;
-
-        if (isWin)
-        {
-            Debug.Log("¡Has ganado!");
-            SceneManager.LoadScene("VictoryScene"); // Cargar escena de victoria
-        }
-        else
-        {
-            Debug.Log("¡Has perdido!");
-            SceneManager.LoadScene("GameOverScene"); // Cargar escena de derrota
-        }
-    }
-    */
 }
