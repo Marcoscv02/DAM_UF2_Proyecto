@@ -2479,6 +2479,7 @@ GameObject:
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2629,7 +2630,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dda054bf65ebde544b11df061476b014, type: 3}
   m_Resource: {fileID: 8300000, guid: dda054bf65ebde544b11df061476b014, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2714,6 +2715,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1310449078e821d4e8f91c6e5fa3c333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &555120648
 GameObject:
   m_ObjectHideFlags: 0
@@ -4995,9 +5008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 084feb03163f9c54599cb5b53503f0af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLives: 3
-  gameOver: 0
-  gameWon: 0
   totalEnemies: 0
   gameOverSceneName: GameOverScene
 --- !u!4 &1019143540
@@ -46573,11 +46583,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7385871795547324994, guid: 23fcaafa349cdb943a5af9ce85a11a7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.56074274
+      value: 2.277
       objectReference: {fileID: 0}
     - target: {fileID: 7385871795547324994, guid: 23fcaafa349cdb943a5af9ce85a11a7b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.104
+      value: -0.552
       objectReference: {fileID: 0}
     - target: {fileID: 7385871795547324994, guid: 23fcaafa349cdb943a5af9ce85a11a7b, type: 3}
       propertyPath: m_LocalPosition.z

@@ -4,17 +4,17 @@
 
 ## PRESENTACIÓN/RESUMEN
 
-- Título. 
-- Concepto: descripción breve (un párrafo) de las ideas principales del juego
-- Género (puede ser más de uno)
-- Público (target audience)
-- Plataforma (PC, smartphone, tablet,...)
+- Título: Rambo Shooter 
+- Concepto: juego shooter 2D estilo Arcade en el que el jugador se presenta en un mapa lleno de enemigos a los cuales debe eliminar sin morirse
+- Género: Shooter 2D
+- Público: Todo tipo de publico
+- Plataforma: PC
 
 ## GAMEPLAY
 
 ### Objetivos
 
-Descripción de cuáles son los objetivos principales (y secundarios si los hay) del juego
+Matar a todos los enemigos 
 
 #### Jugabilidad
 

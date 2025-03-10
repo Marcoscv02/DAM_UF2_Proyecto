@@ -767,7 +767,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1614209912}
-  - component: {fileID: 1614209911}
   - component: {fileID: 1614209913}
   m_Layer: 0
   m_Name: GameManager
@@ -776,22 +775,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1614209911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614209910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084feb03163f9c54599cb5b53503f0af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxLives: 3
-  gameOver: 0
-  gameWon: 0
-  totalEnemies: 0
 --- !u!4 &1614209912
 Transform:
   m_ObjectHideFlags: 0

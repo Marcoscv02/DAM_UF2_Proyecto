@@ -25,6 +25,9 @@ public class SabelaController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>(); // Obtener el Rigidbody del objeto
         animator = GetComponent<Animator>(); // Obtener el Animator del objeto
         UpdateHealthBar(); // Inicializar la barra de vida
+
+        // Reiniciar el estado de la entrada
+        Input.ResetInputAxes();
     }
 
     private void Update()
@@ -62,6 +65,8 @@ public class SabelaController : MonoBehaviour
         }
     }
 
+
+
     //Saltar
     private void Jump()
     {
@@ -72,6 +77,8 @@ public class SabelaController : MonoBehaviour
         lastJumpTime = Time.time;
     }
 
+
+
     //Disparar
     private void Shoot()
     {
@@ -80,6 +87,8 @@ public class SabelaController : MonoBehaviour
         GameObject bullet = Instantiate(BulletPrefb, transform.position + direction * 0.2f, Quaternion.identity);
         bullet.GetComponent<BulletController>().SetDirection(direction);
     }
+
+
 
     public void TakeDamage()
     {
@@ -90,20 +99,14 @@ public class SabelaController : MonoBehaviour
         }
         UpdateHealthBar(); // Actualizar la barra de vida después de recibir daño
     }
-
-    private void FixedUpdate()
-    {
-        // Verificar si el objeto está en el suelo
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.0f);
-        grounded = hit.collider != null;
-    }
+    
 
     // Método para destruir al personaje y perder una vida
-    public void DestroyPlayer()
+    private void DestroyPlayer()
     {
         Debug.Log("El personaje ha sido destruido.");
-        GameManager.Instance.LoseLife(); // Notificar al GameManager
         Destroy(gameObject); // Destruir el objeto del personaje
+        GameManager.Instance.PlayerDestroyed(); // Notificar al GameManager
     }
 
     // Método para actualizar la barra de vida
@@ -111,6 +114,7 @@ public class SabelaController : MonoBehaviour
     {
         if (rellenoBarraVida != null)
         {
+            Debug.Log("Actualizando barra de vida");
             // Ajustar la escala en el eje X de la barra de vida según la vida actual
             rellenoBarraVida.fillAmount = Health / 100f;
         }

@@ -46,13 +46,21 @@ public class NoeliaController : MonoBehaviour
         Health -= 10;
         if (Health <= 0)
         {
-            Destroy(gameObject);
+           DestroyEnemy();
         }
     }
 
     private void OnDestroy()
     {
-        // Notificar al GameManager que un enemigo fue destruido
+         //Notificar al GameManager que un enemigo fue destruido
         GameManager.Instance.CheckWinCondition();
+    }
+
+    // Método para destruir al personaje y perder una vida
+    private void DestroyEnemy()
+    {
+        Debug.Log("Un enemigo ha sido destruido.");
+        Destroy(gameObject); // Destruir el objeto del personaje
+        GameManager.Instance.WinGame(); // Notificar al GameManager
     }
 }
